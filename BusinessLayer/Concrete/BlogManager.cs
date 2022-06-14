@@ -1,11 +1,7 @@
 ﻿using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BusinessLayer.Concrete
 {
@@ -25,7 +21,7 @@ namespace BusinessLayer.Concrete
 
         public void Delete(Blog entity)
         {
-            _blogDal.Delete(entity);    
+            _blogDal.Delete(entity);
         }
 
         public Blog Get(int id)
@@ -38,9 +34,14 @@ namespace BusinessLayer.Concrete
             return _blogDal.ListAll();
         }
 
+        public List<Blog> GetListWithCategory()
+        {
+            return _blogDal.GetListWithCategory();
+        }
+
         public void Update(Blog entity)
         {
-             _blogDal.Update(entity);
+            _blogDal.Update(entity);
         }
     }
 }
