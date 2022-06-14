@@ -7,7 +7,7 @@ namespace DataAccessLayer.Concrete
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=(localdb)\mssqllocaldb;initial catalog=CoreBlogProjectDb;integrated Security=true");
+            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-4VDC1TQ;initial catalog=CoreBlogProjectDb;integrated Security=true");
         }
         public DbSet<About> Abouts { get; set; }
         public DbSet<Blog> Blogs { get; set; }
