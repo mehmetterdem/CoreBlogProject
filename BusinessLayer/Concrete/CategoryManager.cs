@@ -1,12 +1,9 @@
 ﻿using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
-using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Linq.Expressions;
 
 namespace BusinessLayer.Concrete
 {
@@ -37,6 +34,21 @@ namespace BusinessLayer.Concrete
         public List<Category> GetAll()
         {
             return _categoryDal.ListAll();
+        }
+
+        public List<Category> ListAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Category> ListAll(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Category> ListAll(Expression<Func<Category, bool>> filter)
+        {
+            throw new NotImplementedException();
         }
 
         public void Update(Category entity)

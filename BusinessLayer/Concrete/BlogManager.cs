@@ -1,7 +1,9 @@
 ﻿using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
+using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 
 namespace BusinessLayer.Concrete
 {
@@ -29,7 +31,7 @@ namespace BusinessLayer.Concrete
             return _blogDal.GetById(id);
         }
 
-        public List<Blog> GetAll()
+        public List<Blog> ListAll()
         {
             return _blogDal.ListAll();
         }
@@ -42,6 +44,21 @@ namespace BusinessLayer.Concrete
         public void Update(Blog entity)
         {
             _blogDal.Update(entity);
+        }
+
+        public List<Blog> GetBlogById(int id)
+        {
+            return _blogDal.ListAll(x => x.BlogId == id);
+        }
+
+        public List<Blog> ListAll(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Blog> ListAll(Expression<Func<Blog, bool>> filter)
+        {
+            throw new NotImplementedException();
         }
     }
 }

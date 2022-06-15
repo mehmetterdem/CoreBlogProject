@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Abstract;
+using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -6,44 +7,45 @@ using System.Linq.Expressions;
 
 namespace BusinessLayer.Concrete
 {
-    internal class AboutManager : IAboutService
+    public class CommentManager : IGenericService<Comment>
     {
-        public void Add(About entity)
+
+
+
+
+        ICommentDal _commentDal;
+
+        public CommentManager(ICommentDal commentDal)
+        {
+            _commentDal = commentDal;
+        }
+
+        public void Add(Comment entity)
         {
             throw new NotImplementedException();
         }
 
-        public void Delete(About entity)
+        public void Delete(Comment entity)
         {
             throw new NotImplementedException();
         }
 
-        public About Get(int id)
+        public Comment Get(int id)
         {
             throw new NotImplementedException();
         }
 
-        public List<About> GetAll()
+        public List<Comment> ListAll(int id)
+        {
+            return _commentDal.ListAll(x => x.BlogId == id);
+        }
+
+        public List<Comment> ListAll(Expression<Func<Comment, bool>> filter)
         {
             throw new NotImplementedException();
         }
 
-        public List<About> ListAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<About> ListAll(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<About> ListAll(Expression<Func<About, bool>> filter)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update(About entity)
+        public void Update(Comment entity)
         {
             throw new NotImplementedException();
         }

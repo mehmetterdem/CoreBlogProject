@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Linq.Expressions;
 
 namespace BusinessLayer.Abstract
 {
@@ -12,6 +10,8 @@ namespace BusinessLayer.Abstract
         void Update(T entity);
         void Delete(T entity);
         T Get(int id);
-        List<T> GetAll();
+        List<T> ListAll(int id);
+        List<T> ListAll(Expression<Func<T, bool>> filter);
+
     }
 }
