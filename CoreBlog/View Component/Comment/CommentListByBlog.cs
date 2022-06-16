@@ -4,12 +4,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CoreBlog.View_Component.Comment
 {
-    public class CommentListByBlog:ViewComponent
+    public class CommentListByBlog : ViewComponent
     {
         CommentManager cm = new CommentManager(new EfCommentRepository());
-        public IViewComponentResult Invoke()
+        public IViewComponentResult Invoke(int id)
         {
-            var values = cm.ListAll(4);
+            var values = cm.ListAll(id);
             return View(values);
         }
     }

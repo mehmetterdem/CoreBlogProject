@@ -38,7 +38,7 @@ namespace BusinessLayer.Concrete
 
         public List<Category> ListAll()
         {
-            throw new NotImplementedException();
+            return _categoryDal.ListAll();
         }
 
         public List<Category> ListAll(int id)
