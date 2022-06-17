@@ -33,7 +33,7 @@ namespace BusinessLayer.Concrete
 
         public List<Writer> ListAll(int id)
         {
-            throw new NotImplementedException();
+            return _writerDal.ListAll();
         }
 
         public List<Writer> ListAll(Expression<Func<Writer, bool>> filter)
@@ -43,7 +43,7 @@ namespace BusinessLayer.Concrete
 
         public void Update(Writer entity)
         {
-            throw new NotImplementedException();
+            _writerDal.Update(entity);
         }
     }
 }

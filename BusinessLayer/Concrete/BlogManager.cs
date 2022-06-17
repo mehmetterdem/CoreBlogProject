@@ -36,7 +36,7 @@ namespace BusinessLayer.Concrete
             return _blogDal.ListAll();
         }
 
-        public List<Blog> GetListWithCategory()
+        public List<Blog> GetBlogListWithCategory()
         {
             return _blogDal.GetListWithCategory();
         }
@@ -59,6 +59,12 @@ namespace BusinessLayer.Concrete
         public List<Blog> ListAll(Expression<Func<Blog, bool>> filter)
         {
             throw new NotImplementedException();
+        }
+
+
+        public List<Blog> GetBlogListWithWriter(int id)
+        {
+            return _blogDal.ListAll(x => x.WriterId == id);
         }
     }
 }
