@@ -22,17 +22,17 @@ namespace BusinessLayer.Concrete
 
         public void Add(Comment entity)
         {
-            throw new NotImplementedException();
+            _commentDal.Add(entity);
         }
 
         public void Delete(Comment entity)
         {
-            throw new NotImplementedException();
+            _commentDal.Delete(entity);
         }
 
         public Comment Get(int id)
         {
-            throw new NotImplementedException();
+            return _commentDal.GetById(id);
         }
 
         public List<Comment> ListAll(int id)
@@ -47,7 +47,7 @@ namespace BusinessLayer.Concrete
 
         public void Update(Comment entity)
         {
-            throw new NotImplementedException();
+            _commentDal.Update(entity);
         }
     }
 }
