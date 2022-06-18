@@ -41,6 +41,11 @@ namespace BusinessLayer.Concrete
             throw new NotImplementedException();
         }
 
+        public List<NewsLetter> ListAll()
+        {
+            return _newsLetter.ListAll();
+        }
+
         public void Update(NewsLetter entity)
         {
             _newsLetter.Update(entity);

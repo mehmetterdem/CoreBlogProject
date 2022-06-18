@@ -41,6 +41,11 @@ namespace BusinessLayer.Concrete
             throw new NotImplementedException();
         }
 
+        public List<Writer> ListAll()
+        {
+            return _writerDal.ListAll();
+        }
+
         public void Update(Writer entity)
         {
             _writerDal.Update(entity);

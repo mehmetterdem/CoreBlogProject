@@ -7,7 +7,7 @@ using System.Linq.Expressions;
 
 namespace BusinessLayer.Concrete
 {
-    public class CommentManager : IGenericService<Comment>
+    public class CommentManager : ICommentService
     {
 
 
@@ -43,6 +43,11 @@ namespace BusinessLayer.Concrete
         public List<Comment> ListAll(Expression<Func<Comment, bool>> filter)
         {
             throw new NotImplementedException();
+        }
+
+        public List<Comment> ListAll()
+        {
+            return _commentDal.ListAll();
         }
 
         public void Update(Comment entity)

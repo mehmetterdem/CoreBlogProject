@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Abstract;
+using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -6,36 +7,37 @@ using System.Linq.Expressions;
 
 namespace BusinessLayer.Concrete
 {
-    internal class AboutManager : IAboutService
+    public class AboutManager : IAboutService
     {
+        IAboutDal _aboutDal;
+
+        public AboutManager(IAboutDal aboutDal)
+        {
+            _aboutDal = aboutDal;
+        }
+
         public void Add(About entity)
         {
-            throw new NotImplementedException();
+            _aboutDal.Add(entity);
         }
 
         public void Delete(About entity)
         {
-            throw new NotImplementedException();
+            _aboutDal.Delete(entity);
         }
 
         public About Get(int id)
         {
-            throw new NotImplementedException();
-        }
-
-        public List<About> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<About> ListAll()
-        {
-            throw new NotImplementedException();
+            return _aboutDal.GetById(id);
         }
 
         public List<About> ListAll(int id)
         {
-            throw new NotImplementedException();
+            return _aboutDal.ListAll();
+        }
+        public List<About> ListAll()
+        {
+            return _aboutDal.ListAll();
         }
 
         public List<About> ListAll(Expression<Func<About, bool>> filter)
@@ -45,7 +47,7 @@ namespace BusinessLayer.Concrete
 
         public void Update(About entity)
         {
-            throw new NotImplementedException();
+            _aboutDal.Update(entity);
         }
     }
 }

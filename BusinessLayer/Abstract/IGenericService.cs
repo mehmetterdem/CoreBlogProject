@@ -11,6 +11,7 @@ namespace BusinessLayer.Abstract
         void Delete(T entity);
         T Get(int id);
         List<T> ListAll(int id);
+        List<T> ListAll();
         List<T> ListAll(Expression<Func<T, bool>> filter);
 
     }
