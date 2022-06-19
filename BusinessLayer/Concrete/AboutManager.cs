@@ -26,23 +26,14 @@ namespace BusinessLayer.Concrete
             _aboutDal.Delete(entity);
         }
 
-        public About Get(int id)
+        public About GetById(int id)
         {
             return _aboutDal.GetById(id);
         }
 
-        public List<About> ListAll(int id)
+        public List<About> GetList()
         {
             return _aboutDal.ListAll();
-        }
-        public List<About> ListAll()
-        {
-            return _aboutDal.ListAll();
-        }
-
-        public List<About> ListAll(Expression<Func<About, bool>> filter)
-        {
-            throw new NotImplementedException();
         }
 
         public void Update(About entity)

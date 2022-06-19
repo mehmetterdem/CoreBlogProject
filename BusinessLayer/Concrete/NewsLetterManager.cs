@@ -26,22 +26,18 @@ namespace BusinessLayer.Concrete
             _newsLetter?.Delete(entity);
         }
 
-        public NewsLetter Get(int id)
+        public NewsLetter GetById(int id)
         {
             return _newsLetter.GetById(id);
         }
 
-        public List<NewsLetter> ListAll(int id)
-        {
-            return _newsLetter.ListAll(x => x.MailId == id);
-        }
+        //public List<NewsLetter> GetList(int id)
+        //{
+        //    return _newsLetter.ListAll(x => x.MailId == id);
+        //}
 
-        public List<NewsLetter> ListAll(Expression<Func<NewsLetter, bool>> filter)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<NewsLetter> ListAll()
+        
+        public List<NewsLetter> GetList()
         {
             return _newsLetter.ListAll();
         }

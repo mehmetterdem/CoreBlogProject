@@ -29,29 +29,26 @@ namespace BusinessLayer.Concrete
             _contactDal.Delete(entity);
         }
 
-        public Contact Get(int id)
+        public Contact GetById(int id)
         {
             return _contactDal.GetById(id);
         }
 
-        public List<Contact> ListAll(int id)
-        {
-            return _contactDal.ListAll();
-        }
+        //public List<Contact> ListAll(int id)
+        //{
+        //    return _contactDal.ListAll();
+        //}
 
-        public List<Contact> ListAll(Expression<Func<Contact, bool>> filter)
-        {
-            throw new NotImplementedException();
-        }
+        
 
-        public List<Contact> ListAll()
+        public List<Contact> GetList()
         {
             return _contactDal.ListAll();
         }
 
         public void Update(Contact entity)
         {
-            throw new NotImplementedException();
+            _contactDal.Update(entity);
         }
     }
 }

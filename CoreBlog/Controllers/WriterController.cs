@@ -12,5 +12,13 @@ namespace CoreBlog.Controllers
         {
             return View();
         }
+        public PartialViewResult WriterNavbarPartial()
+        {
+            return PartialView();
+        }
+        public PartialViewResult WriterFooterPartial()
+        {
+            return PartialView();
+        }
     }
 }

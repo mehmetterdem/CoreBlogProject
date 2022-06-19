@@ -24,33 +24,19 @@ namespace BusinessLayer.Concrete
         public void Delete(Category entity)
         {
             _categoryDal.Delete(entity);
-        }
+        }     
 
-        public Category Get(int id)
+        public Category GetById(int id)
         {
             return _categoryDal.GetById(id);
         }
 
-        public List<Category> GetAll()
+        public List<Category> GetList()
         {
             return _categoryDal.ListAll();
         }
 
-        public List<Category> ListAll()
-        {
-            return _categoryDal.ListAll();
-        }
-
-        public List<Category> ListAll(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Category> ListAll(Expression<Func<Category, bool>> filter)
-        {
-            throw new NotImplementedException();
-        }
-
+   
         public void Update(Category entity)
         {
             _categoryDal.Update(entity);

@@ -26,22 +26,19 @@ namespace BusinessLayer.Concrete
             _writerDal.Delete(entity);
         }
 
-        public Writer Get(int id)
+        public Writer GetById(int id)
         {
             return _writerDal.GetById(id);
         }
 
-        public List<Writer> ListAll(int id)
-        {
-            return _writerDal.ListAll();
-        }
+        //public List<Writer> ListAll(int id)
+        //{
+        //    return _writerDal.ListAll();
+        //}
 
-        public List<Writer> ListAll(Expression<Func<Writer, bool>> filter)
-        {
-            throw new NotImplementedException();
-        }
 
-        public List<Writer> ListAll()
+
+        public List<Writer> GetList()
         {
             return _writerDal.ListAll();
         }

@@ -30,25 +30,20 @@ namespace BusinessLayer.Concrete
             _commentDal.Delete(entity);
         }
 
-        public Comment Get(int id)
+        public Comment GetById(int id)
         {
             return _commentDal.GetById(id);
         }
 
-        public List<Comment> ListAll(int id)
-        {
-            return _commentDal.ListAll(x => x.BlogId == id);
-        }
-
-        public List<Comment> ListAll(Expression<Func<Comment, bool>> filter)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Comment> ListAll()
+        public List<Comment> GetList()
         {
             return _commentDal.ListAll();
         }
+
+        //public List<Comment> ListAll(int id)
+        //{
+        //    return _commentDal.ListAll(x => x.BlogId == id);
+        //}
 
         public void Update(Comment entity)
         {

@@ -9,10 +9,10 @@ namespace BusinessLayer.Abstract
         void Add(T entity);
         void Update(T entity);
         void Delete(T entity);
-        T Get(int id);
-        List<T> ListAll(int id);
-        List<T> ListAll();
-        List<T> ListAll(Expression<Func<T, bool>> filter);
+        T GetById(int id);
+        List<T> GetList();
+
+      
 
     }
 }

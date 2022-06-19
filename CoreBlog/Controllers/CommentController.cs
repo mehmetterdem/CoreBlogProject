@@ -30,7 +30,7 @@ namespace CoreBlog.Controllers
         }
         public PartialViewResult CommentListByBlog(int id)
         {
-            var values = cm.ListAll(id);
+            var values = cm.GetById(id);
             return PartialView(values);
         }
     }
