@@ -18,7 +18,7 @@ namespace CoreBlog.Controllers
         public PartialViewResult SubscribeMail(NewsLetter newsLetter)
         {
             newsLetter.MailStatus = true;
-            nm.Add(newsLetter);
+            nm.TAdd(newsLetter);
             return PartialView();
         }
     }

@@ -5,13 +5,17 @@ using EntityLayer.Concrete;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace CoreBlog.Controllers
 {
     [AllowAnonymous]
     public class BlogController : Controller
     {
+        CategoryManager cm = new CategoryManager(new EfCategoryRepository());
         BlogManager bm = new BlogManager(new EfBlogRepository());
         public IActionResult Index()
         {
@@ -26,12 +30,20 @@ namespace CoreBlog.Controllers
         }
         public IActionResult BlogListByWriter()
         {
-            var values = bm.GetBlogListWithWriter(1);
+            var values = bm.GetListWithCategoryByWriterBm(1);
             return View(values);
         }
         [HttpGet]
         public IActionResult BlogAdd()
         {
+            
+            List<SelectListItem> categotyvalue = (from x in cm.TGetList()
+                                                  select new SelectListItem
+                                                  {
+                                                      Text=x.CategoryName,
+                                                      Value=x.CategoryId.ToString()
+                                                  }).ToList();
+            ViewBag.cv=categotyvalue;
             return View();
         }
         [HttpPost]
@@ -41,10 +53,17 @@ namespace CoreBlog.Controllers
             ValidationResult result = bv.Validate(blog);
             if (result.IsValid)
             {
+                List<SelectListItem> categotyvalue = (from x in cm.TGetList()
+                                                      select new SelectListItem
+                                                      {
+                                                          Text = x.CategoryName,
+                                                          Value = x.CategoryId.ToString()
+                                                      }).ToList();
+                ViewBag.cv = categotyvalue;
                 blog.BlogStatus = true;
                 blog.CreateDate = DateTime.Parse(DateTime.Now.ToShortDateString());
                 blog.WriterId = 1;
-                bm.Add(blog);
+                bm.TAdd(blog);
                 RedirectToAction("BlogListByWriter", "Blog");
             }
             else
@@ -54,7 +73,39 @@ namespace CoreBlog.Controllers
                     ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
                 }
             }
-            return View(blog);
+            return View();
+        }
+        public IActionResult DeleteBlog(int id)
+        {
+            var blogvalue = bm.TGetById(id);
+            bm.TDelete(blogvalue);
+            return RedirectToAction("BlogListByWriter");
+
+        }
+
+
+        [HttpGet]
+        public IActionResult EditBlog(int id)
+        {
+            List<SelectListItem> categotyvalue = (from x in cm.TGetList()
+                                                  select new SelectListItem
+                                                  {
+                                                      Text = x.CategoryName,
+                                                      Value = x.CategoryId.ToString()
+                                                  }).ToList();
+            ViewBag.cv = categotyvalue;
+            var blogvalue = bm.TGetById(id);
+
+            return View(blogvalue);
+        }
+        [HttpPost]
+        public IActionResult EditBlog(Blog blog)
+        {
+            blog.BlogStatus = true;
+            blog.CreateDate=DateTime.Parse(DateTime.Now.ToShortDateString());
+            blog.WriterId = 1;
+            bm.TUpdate(blog);
+            return RedirectToAction("BlogListByWriter");
         }
     }
 }

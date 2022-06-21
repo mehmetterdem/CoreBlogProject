@@ -19,17 +19,17 @@ namespace BusinessLayer.Concrete
             _contactDal = contactDal;
         }
 
-        public void Add(Contact entity)
+        public void TAdd(Contact entity)
         {
             _contactDal.Add(entity);
         }
 
-        public void Delete(Contact entity)
+        public void TDelete(Contact entity)
         {
             _contactDal.Delete(entity);
         }
 
-        public Contact GetById(int id)
+        public Contact TGetById(int id)
         {
             return _contactDal.GetById(id);
         }
@@ -41,12 +41,12 @@ namespace BusinessLayer.Concrete
 
         
 
-        public List<Contact> GetList()
+        public List<Contact> TGetList()
         {
             return _contactDal.ListAll();
         }
 
-        public void Update(Contact entity)
+        public void TUpdate(Contact entity)
         {
             _contactDal.Update(entity);
         }

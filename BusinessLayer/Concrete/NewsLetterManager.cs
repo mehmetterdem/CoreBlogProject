@@ -16,17 +16,17 @@ namespace BusinessLayer.Concrete
             _newsLetter = newsLetter;
         }
 
-        public void Add(NewsLetter entity)
+        public void TAdd(NewsLetter entity)
         {
             _newsLetter.Add(entity);
         }
 
-        public void Delete(NewsLetter entity)
+        public void TDelete(NewsLetter entity)
         {
             _newsLetter?.Delete(entity);
         }
 
-        public NewsLetter GetById(int id)
+        public NewsLetter TGetById(int id)
         {
             return _newsLetter.GetById(id);
         }
@@ -37,12 +37,12 @@ namespace BusinessLayer.Concrete
         //}
 
         
-        public List<NewsLetter> GetList()
+        public List<NewsLetter> TGetList()
         {
             return _newsLetter.ListAll();
         }
 
-        public void Update(NewsLetter entity)
+        public void TUpdate(NewsLetter entity)
         {
             _newsLetter.Update(entity);
         }

@@ -20,22 +20,22 @@ namespace BusinessLayer.Concrete
             _commentDal = commentDal;
         }
 
-        public void Add(Comment entity)
+        public void TAdd(Comment entity)
         {
             _commentDal.Add(entity);
         }
 
-        public void Delete(Comment entity)
+        public void TDelete(Comment entity)
         {
             _commentDal.Delete(entity);
         }
 
-        public Comment GetById(int id)
+        public Comment TGetById(int id)
         {
             return _commentDal.GetById(id);
         }
 
-        public List<Comment> GetList()
+        public List<Comment> TGetList()
         {
             return _commentDal.ListAll();
         }
@@ -45,7 +45,7 @@ namespace BusinessLayer.Concrete
         //    return _commentDal.ListAll(x => x.BlogId == id);
         //}
 
-        public void Update(Comment entity)
+        public void TUpdate(Comment entity)
         {
             _commentDal.Update(entity);
         }

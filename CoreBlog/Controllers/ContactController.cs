@@ -19,7 +19,7 @@ namespace CoreBlog.Controllers
         {
             contact.CreateDate=DateTime.Parse(DateTime.Now.ToShortDateString());
             contact.ContactStatus = true;
-            cm.Add(contact);
+            cm.TAdd(contact);
             return RedirectToAction("Index", "Blog");
         }
     }

@@ -26,7 +26,7 @@ namespace CoreBlog.Controllers
             {
                 writer.WriterStatus = true;
                 writer.WriterAbout = "Deneme test";
-                wm.Add(writer);
+                wm.TAdd(writer);
                 return RedirectToAction("Index", "Blog");
             }
             else

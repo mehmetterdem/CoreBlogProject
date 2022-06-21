@@ -16,27 +16,27 @@ namespace BusinessLayer.Concrete
             _aboutDal = aboutDal;
         }
 
-        public void Add(About entity)
+        public void TAdd(About entity)
         {
             _aboutDal.Add(entity);
         }
 
-        public void Delete(About entity)
+        public void TDelete(About entity)
         {
             _aboutDal.Delete(entity);
         }
 
-        public About GetById(int id)
+        public About TGetById(int id)
         {
             return _aboutDal.GetById(id);
         }
 
-        public List<About> GetList()
+        public List<About> TGetList()
         {
             return _aboutDal.ListAll();
         }
 
-        public void Update(About entity)
+        public void TUpdate(About entity)
         {
             _aboutDal.Update(entity);
         }

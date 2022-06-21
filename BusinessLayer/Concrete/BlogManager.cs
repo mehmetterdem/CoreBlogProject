@@ -16,27 +16,27 @@ namespace BusinessLayer.Concrete
         {
             _blogDal = blogDal;
         }
-        public void Add(Blog entity)
+        public void TAdd(Blog entity)
         {
             _blogDal.Add(entity);
         }
 
-        public void Update(Blog entity)
+        public void TUpdate(Blog entity)
         {
             _blogDal.Update(entity);
         }
 
-        public void Delete(Blog entity)
+        public void TDelete(Blog entity)
         {
             _blogDal.Delete(entity);
         }
 
-        public Blog GetById(int id)
+        public Blog TGetById(int id)
         {
             return _blogDal.GetById(id);
         }
 
-        public List<Blog> GetList()
+        public List<Blog> TGetList()
         {
             return _blogDal.ListAll();
         }
@@ -56,6 +56,10 @@ namespace BusinessLayer.Concrete
         public List<Blog> BlogLast3Post()
         {
             return _blogDal.ListAll().Take(3).ToList();
+        }
+        public List<Blog> GetListWithCategoryByWriterBm(int id)
+        {
+            return _blogDal.GetListWithCategoryByWriter(id);
         }
 
      
