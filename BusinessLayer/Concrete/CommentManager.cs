@@ -1,9 +1,7 @@
 ﻿using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
-using System;
 using System.Collections.Generic;
-using System.Linq.Expressions;
 
 namespace BusinessLayer.Concrete
 {
@@ -40,10 +38,10 @@ namespace BusinessLayer.Concrete
             return _commentDal.ListAll();
         }
 
-        //public List<Comment> ListAll(int id)
-        //{
-        //    return _commentDal.ListAll(x => x.BlogId == id);
-        //}
+        public List<Comment> ListAll(int id)
+        {
+            return _commentDal.ListAll(x => x.BlogId == id);
+        }
 
         public void TUpdate(Comment entity)
         {
