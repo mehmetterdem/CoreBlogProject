@@ -1,9 +1,7 @@
 ﻿using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
 using EntityLayer.Concrete;
-using System;
 using System.Collections.Generic;
-using System.Linq.Expressions;
 
 namespace BusinessLayer.Concrete
 {
@@ -14,6 +12,11 @@ namespace BusinessLayer.Concrete
         public WriterManager(IWriterDal writerDal)
         {
             _writerDal = writerDal;
+        }
+
+        public List<Writer> GetWriterById(int id)
+        {
+            return _writerDal.ListAll(x => x.WriterId == id);
         }
 
         public void TAdd(Writer entity)
@@ -30,13 +33,6 @@ namespace BusinessLayer.Concrete
         {
             return _writerDal.GetById(id);
         }
-
-        //public List<Writer> ListAll(int id)
-        //{
-        //    return _writerDal.ListAll();
-        //}
-
-
 
         public List<Writer> TGetList()
         {
