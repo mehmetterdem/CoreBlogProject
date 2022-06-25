@@ -9,7 +9,7 @@ namespace DataAccessLayer.Concrete
         {
             string local = @"Data Source=(localdb)\mssqllocaldb;initial catalog=CoreBlogProjectDb;integrated Security=true";
             string home = @"Data Source=DESKTOP-4VDC1TQ;initial catalog=CoreBlogProjectDb;integrated Security=true";
-            optionsBuilder.UseSqlServer(local);
+            optionsBuilder.UseSqlServer(home);
         }
         public DbSet<About> Abouts { get; set; }
         public DbSet<Blog> Blogs { get; set; }
@@ -19,6 +19,8 @@ namespace DataAccessLayer.Concrete
         public DbSet<Writer> Writers { get; set; }
         public DbSet<NewsLetter> NewsLetters { get; set; }
         public DbSet<BlogRating> BlogRatings { get; set; }
+        public DbSet<Notification> Notifications{ get; set; }
+
 
     }
 }
