@@ -11,6 +11,7 @@ using System.IO;
 
 namespace CoreBlog.Controllers
 {
+    [AllowAnonymous]
     public class WriterController : Controller
     {
         WriterManager wm = new WriterManager(new EfWriterRepository());
@@ -18,6 +19,10 @@ namespace CoreBlog.Controllers
         [AllowAnonymous]
         [Authorize]
         public IActionResult Index()
+        {
+            return View();
+        }
+        public IActionResult WriterProfile()
         {
             return View();
         }

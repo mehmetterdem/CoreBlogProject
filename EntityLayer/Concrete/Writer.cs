@@ -16,5 +16,10 @@ namespace EntityLayer.Concrete
 
         public List<Blog> Blogs { get; set; }
 
+        public virtual ICollection<Message> WriterSender { get; set; }
+
+        public virtual ICollection<Message> WriterReceiver { get; set; }
+
+
     }
 }
