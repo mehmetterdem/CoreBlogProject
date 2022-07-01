@@ -20,7 +20,7 @@ namespace BusinessLayer.Concrete
 
         public List<Message> GetInboxListByWriter(int id)
         {
-            return _messageDal.ListAll(x=>x.ReceiverId==id);
+            return _messageDal.GetMessageByWriter(id);
         }
 
         public void TAdd(Message entity)
