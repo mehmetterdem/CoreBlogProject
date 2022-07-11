@@ -11,15 +11,17 @@ using System.IO;
 
 namespace CoreBlog.Controllers
 {
-    [AllowAnonymous]
+    
     public class WriterController : Controller
     {
         WriterManager wm = new WriterManager(new EfWriterRepository());
 
-        [AllowAnonymous]
+        
         [Authorize]
         public IActionResult Index()
         {
+            var usermail = User.Identity.Name;
+            ViewBag.v1 = usermail;
             return View();
         }
         public IActionResult WriterProfile()
