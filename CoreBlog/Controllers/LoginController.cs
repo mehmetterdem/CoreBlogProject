@@ -34,7 +34,7 @@ namespace CoreBlog.Controllers
                 var useridentity = new ClaimsIdentity(claims, "a");
                 ClaimsPrincipal principal = new ClaimsPrincipal(useridentity);
                 await HttpContext.SignInAsync(principal);
-                return RedirectToAction("Index", "Writer");
+                return RedirectToAction("Index", "Dashboard");
             }
             else
             {
@@ -42,7 +42,7 @@ namespace CoreBlog.Controllers
             }
 
             #endregion
-            //#region Session
+            #region Session
             //Context c = new Context();
             //var result = c.Writers.FirstOrDefault(x => x.WriterMail == writer.WriterMail && x.WriterPassword == writer.WriterPassword);
             //if (result != null)
@@ -54,7 +54,7 @@ namespace CoreBlog.Controllers
             //{
             //    return View();
             //}
-            //#endregion
+            #endregion
 
         }
 
