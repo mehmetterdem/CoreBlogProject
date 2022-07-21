@@ -26,6 +26,8 @@
         <td><a href="#" class="btn btn-success">Düzenle</a></td>
     </tr>
    }
-</table>
 
+</table>
+<a href="~/Admin/Category/CategoryAdd" class="btn btn-primary">Yeni Kategori Ekle</a>
+<br /> 
 @Html.PagedListPager((IPagedList)Model,page=>Url.Action("Index",new{page}))
