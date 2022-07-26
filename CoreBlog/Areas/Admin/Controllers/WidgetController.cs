@@ -14,9 +14,7 @@ namespace CoreBlog.Areas.Admin.Controllers
          [Area("Admin")]
         public IActionResult Index()
         {
-            ViewBag.v1 = bm.TGetList().Count();
-            ViewBag.v2=c.Contacts.Count();
-            ViewBag.v3 = c.Comments.Count();
+           
             return View();
         }
     }
