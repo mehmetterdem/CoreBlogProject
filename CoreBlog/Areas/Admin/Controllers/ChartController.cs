@@ -11,23 +11,29 @@ namespace CoreBlog.Areas.Admin.Controllers
         {
             return View();
         }
+        [Area("Admin")]
         public IActionResult CategoryChart()
         {
             List<CategoryClass> list = new List<CategoryClass>();
             list.Add(new CategoryClass
             {
-                CategoryCount = 10,
-                CategoryName = "Teknoloji"
+                categorycount = 10,
+                categoryname = "Teknoloji"
             }) ;
             list.Add(new CategoryClass
             {
-                CategoryCount = 15,
-                CategoryName = "Yazılım"
+                categorycount = 15,
+                categoryname = "Yazılım"
             });
             list.Add(new CategoryClass
             {
-                CategoryCount = 5,
-                CategoryName = "Spor"
+                categorycount = 5,
+                categoryname = "Spor"
+            });
+            list.Add(new CategoryClass
+            {
+                categorycount = 2,
+                categoryname = "Sinema"
             });
             return Json(new {jsonlist=list});
         }
