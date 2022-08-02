@@ -14,6 +14,7 @@ namespace CoreBlog.Areas.Admin.Controllers
         {
             return View();
         }
+
         [Area("Admin")]
         public IActionResult WriterList()
         {
@@ -26,6 +27,14 @@ namespace CoreBlog.Areas.Admin.Controllers
         {
             var findWriter = writers.FirstOrDefault(x => x.id == writerid);
             var jsonWriter=JsonConvert.SerializeObject(findWriter);
+            return Json(jsonWriter);
+        }
+
+        [Area("Admin")]
+        public IActionResult AddWriter(WriterClass w)
+        {
+            writers.Add(w);
+            var jsonWriter = JsonConvert.SerializeObject(w);
             return Json(jsonWriter);
         }
 
