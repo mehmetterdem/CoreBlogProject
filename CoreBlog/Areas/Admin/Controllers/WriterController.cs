@@ -46,6 +46,16 @@ namespace CoreBlog.Areas.Admin.Controllers
             return Json(writer);
 
         }
+        [Area("Admin")]
+
+        public IActionResult UpdateWriter(WriterClass w)
+        {
+            var writer = writers.FirstOrDefault(x => x.id == w.id);
+            writer.name=w.name;
+            var jsonWriter = JsonConvert.SerializeObject(writer);
+            return Json(jsonWriter);
+
+        }
 
 
         public static List<WriterClass> writers = new List<WriterClass>
