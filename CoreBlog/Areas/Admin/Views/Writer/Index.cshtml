@@ -8,6 +8,7 @@
 <button type="button" id="btngetlist" class="btn btn-outline-primary">Yazar Listesi</button>
 <button type="button" id="btngetbyid" class="btn btn-outline-primary">Yazar Getir</button>
 <button type="button" id="btnaddwriter" class="btn btn-outline-info">Yazar Ekle</button>
+<button type="button" id="btndeletewriter" class="btn btn-outline-danger">Yazar Sil</button>
 <br />
 <br />
 <div id="writerlist">
@@ -25,6 +26,9 @@
     <input type="text" class="form-control" id="txtwriterid" placeholder="Yazar Id" />
     <br />
     <input type="text" class="form-control" id="txtwritername" placeholder="Yazar Adı" />
+</div>
+<div>
+    <input type="text" class="form-control" id="txtdeletewriterid" placeholder="Silinecek Yazar id" />
 </div>
 
 @section scripts{
@@ -70,8 +74,8 @@
 
         $("#btnaddwriter").click(function() {
             let writer = {
-                id:$("#txtwriterid").val(),
-                name:$("#txtwritername").val()
+                id: $("#txtwriterid").val(),
+                name: $("#txtwritername").val()
             };
 
             $.ajax({
@@ -81,6 +85,22 @@
                 success: function(func) {
                     let result = jQuery.parseJSON(func);
                     alert("Yazar ekleme başarılı");
+                }
+            });
+
+        });
+
+        $("#btndeletewriter").click(x => {
+            let id = $("#txtdeletewriterid").val();
+
+
+            $.ajax({
+                
+                url: "/Admin/Writer/DeleteWriter/" + id,
+                type: "post",
+                dataType: "json",
+                success: function(func) {
+                    alert("Yazar Başarıyla Silindi!");
                 }
             });
 

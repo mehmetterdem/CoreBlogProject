@@ -38,6 +38,15 @@ namespace CoreBlog.Areas.Admin.Controllers
             return Json(jsonWriter);
         }
 
+        [Area("Admin")]
+        public IActionResult DeleteWriter(int id)
+        {
+            var writer=writers.FirstOrDefault(x=>x.id==id);
+            writers.Remove(writer);
+            return Json(writer);
+
+        }
+
 
         public static List<WriterClass> writers = new List<WriterClass>
         {
