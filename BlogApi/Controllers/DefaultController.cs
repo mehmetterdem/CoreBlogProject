@@ -19,7 +19,7 @@ namespace BlogApi.Controllers
         [HttpPost]
         public IActionResult EmployeeAdd(Employee e)
         {
-            using var c=new Context();
+            using var c = new Context();
             c.Add(e);
             c.SaveChanges();
             return Ok(e);
@@ -29,13 +29,46 @@ namespace BlogApi.Controllers
         {
             using var c = new Context();
             var employee = c.Employees.Find(id);
-            if (employee==null)
+            if (employee == null)
             {
                 return NotFound();
             }
             else
             {
                 return Ok(employee);
+            }
+        }
+        [HttpDelete("{id}")]
+        public IActionResult EmployeeDelete(int id)
+        {
+            using var c = new Context();
+            var employee = c.Employees.Find(id);
+            if (employee == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                c.Remove(employee);
+                c.SaveChanges();
+                return Ok();
+            }
+        }
+        [HttpPut]
+        public IActionResult EmployeeUpdate(Employee employee)
+        {
+            using var c = new Context();
+            var emp=c.Employees.Find(employee.Id);
+            if (emp==null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                emp.Name = employee.Name;
+                c.Update(emp);
+                c.SaveChanges();
+                return Ok();
             }
         }
     }
