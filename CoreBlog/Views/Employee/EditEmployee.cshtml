@@ -1,0 +1,19 @@
+﻿@using CoreBlog.Controllers
+@model Class1
+@{
+    ViewData["Title"] = "EditEmployee";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h1>Çalışan bilgileri güncelleme</h1>
+
+<form method="post">
+    <label>Id</label>
+    @Html.TextBoxFor(x=>x.Id,new{@class="form-control"})
+    <br />
+    <label>Personel Adı</label>
+    @Html.TextBoxFor(x=>x.Name,new{@class="form-control"})
+    <br />
+    <button href="/Employee/index" class="btn btn-info">Güncelle</button>
+</form>
+
