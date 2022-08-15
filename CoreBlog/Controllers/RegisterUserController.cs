@@ -33,9 +33,12 @@ namespace CoreBlog.Controllers
                     UserName = p.UserName,
                     Email = p.Mail,
                     NameSurname = p.NameSurname,
+                    
 
                 };
+
                 var result = await _userManager.CreateAsync(appUser, p.Password);
+
                 if (result.Succeeded)
                 {
                     return RedirectToAction("Index", "Login");
