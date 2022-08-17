@@ -32,10 +32,12 @@ namespace CoreBlog.Controllers
         [Authorize]
         public IActionResult Index()
         {
-            var usermail = User.Identity.Name;
-            ViewBag.v1 = usermail;
+            var username = User.Identity.Name;
+           
             Context c = new Context();
+            var usermail = c.Users.Where(x => x.UserName == username).Select(x => x.Email).FirstOrDefault();
             var writerName = c.Writers.Where(x => x.WriterMail == usermail).Select(y => y.WriterName).FirstOrDefault();
+            ViewBag.v1 = usermail;
             ViewBag.v2 = writerName;
             return View();
         }
@@ -75,6 +77,7 @@ namespace CoreBlog.Controllers
             values.NameSurname = p.namesurname;
             values.İmageUrl = p.imageurl;
             values.UserName = p.username;
+            values.PasswordHash = _userManager.PasswordHasher.HashPassword(values, p.password);
             var result=await _userManager.UpdateAsync(values);
             return RedirectToAction("Index", "Dashboard");
 

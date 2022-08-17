@@ -47,48 +47,13 @@ namespace CoreBlog.Controllers
             
         }
 
+        public async Task<IActionResult> LogOut()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("index", "Login");
+        }
 
-
-        //[HttpPost]
-
-        //public async Task<IActionResult> Index(Writer writer)
-        //{
-        //    #region Claims
-        //    Context c = new Context();
-        //    var result = c.Writers.FirstOrDefault(x => x.WriterMail == writer.WriterMail && x.WriterPassword == writer.WriterPassword);
-        //    if (result != null)
-        //    {
-        //        var claims = new List<Claim>()
-        //        {
-        //            new Claim(ClaimTypes.Name,writer.WriterMail)
-        //        };
-        //        var useridentity = new ClaimsIdentity(claims, "a");
-        //        ClaimsPrincipal principal = new ClaimsPrincipal(useridentity);
-        //        await HttpContext.SignInAsync(principal);
-        //        return RedirectToAction("Index", "Dashboard");
-        //    }
-        //    else
-        //    {
-        //        return View();
-        //    }
-
-        //    #endregion
-        //    #region Session
-        //    //Context c = new Context();
-        //    //var result = c.Writers.FirstOrDefault(x => x.WriterMail == writer.WriterMail && x.WriterPassword == writer.WriterPassword);
-        //    //if (result != null)
-        //    //{
-        //    //    HttpContext.Session.SetString("username", writer.WriterMail);
-        //    //    return RedirectToAction("Index", "Writer");
-        //    //}
-        //    //else
-        //    //{
-        //    //    return View();
-        //    //}
-        //    #endregion
-
-        //}
-
+      
 
     }
 }
