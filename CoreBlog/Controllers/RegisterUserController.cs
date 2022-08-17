@@ -10,6 +10,7 @@ namespace CoreBlog.Controllers
     [AllowAnonymous]
     public class RegisterUserController : Controller
     {
+        
         private readonly UserManager<AppUser> _userManager;
 
         public RegisterUserController(UserManager<AppUser> userManager)
