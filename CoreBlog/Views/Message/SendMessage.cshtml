@@ -1,0 +1,22 @@
+﻿@model EntityLayer.Concrete.Message
+@{
+    ViewData["Title"] = "SendMessage";
+    Layout = "~/Views/Shared/WriterLayout.cshtml";
+}
+
+<h1>SendMessage</h1>
+
+<form method="post" >
+
+    <label for="Recevier">Alıcı</label>
+    <input type="text" class="form-control" asp-for="@Model.ReceiverId"/>
+    <br />
+    <label for="Subject">Konu</label>
+    <input type="text" class="form-control" asp-for="@Model.Subject"/>
+    <br />
+    <label for="messagedetails">Mesajınız</label>
+    <input type="text" class="form-control" asp-for="@Model.MessageDetails"/>
+    <br />
+    <button class="btn btn-info">Gönder</button>
+
+</form>
