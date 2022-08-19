@@ -20,7 +20,12 @@ namespace BusinessLayer.Concrete
 
         public List<Message> GetInboxListByWriter(int id)
         {
-            return _messageDal.GetMessageByWriter(id);
+            return _messageDal.GetInboxWithMessageByWriter(id);
+        }
+
+        public List<Message> GetSendBoxListByWriter(int id)
+        {
+            return _messageDal.GetSendBoxWithMessageByWriter(id);
         }
 
         public void TAdd(Message entity)
@@ -30,12 +35,12 @@ namespace BusinessLayer.Concrete
 
         public void TDelete(Message entity)
         {
-            _messageDal.Delete(entity); 
+            _messageDal.Delete(entity);
         }
 
         public Message TGetById(int id)
         {
-            return _messageDal.GetById(id); 
+            return _messageDal.GetById(id);
         }
 
         public List<Message> TGetList()

@@ -19,6 +19,7 @@ namespace CoreBlog.Controllers
 
     public class WriterController : Controller
     {
+        Context c = new Context();
         UserManager um = new UserManager(new EfUserRepository());
         WriterManager wm = new WriterManager(new EfWriterRepository());
         private readonly UserManager<AppUser> _userManager;
@@ -26,14 +27,16 @@ namespace CoreBlog.Controllers
         public WriterController(UserManager<AppUser> userManager)
         {
             _userManager = userManager;
+           
         }
+         
+        
 
 
         [Authorize]
         public IActionResult Index()
         {
             var username = User.Identity.Name;
-           
             Context c = new Context();
             var usermail = c.Users.Where(x => x.UserName == username).Select(x => x.Email).FirstOrDefault();
             var writerName = c.Writers.Where(x => x.WriterMail == usermail).Select(y => y.WriterName).FirstOrDefault();
@@ -48,6 +51,8 @@ namespace CoreBlog.Controllers
         [AllowAnonymous]
         public PartialViewResult WriterNavbarPartial()
         {
+
+           
             return PartialView();
         }
 

@@ -13,6 +13,7 @@ namespace BusinessLayer.Abstract
     {
 
         public List<Message> GetInboxListByWriter(int  id);
+        List<Message> GetSendBoxListByWriter(int id);
 
 
     }
