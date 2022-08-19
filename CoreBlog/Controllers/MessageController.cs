@@ -55,7 +55,7 @@ namespace CoreBlog.Controllers
             var writerid=c.Writers.Where(c => c.WriterMail == usermail).Select(c => c.WriterId).FirstOrDefault();
             
             p.SenderId = writerid;
-            p.ReceiverId = 2;
+            p.ReceiverId = 4;
             p.MessageStatus = true;
             p.MessageDate =Convert.ToDateTime(DateTime.Now.ToShortDateString());
             mm.TAdd(p);

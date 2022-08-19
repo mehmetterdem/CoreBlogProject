@@ -1,7 +1,7 @@
 ﻿@using EntityLayer.Concrete
 @model List<Message>
 @{
-    ViewData["Title"] = "Inbox";
+    ViewData["Title"] = "SendBox";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 
@@ -16,7 +16,7 @@
                 <div class="ibox ">
                     <div class="ibox-content mailbox-content">
                         <div class="file-manager">
-                            <a class="btn btn-block btn-primary compose-mail" href="/admin/message/composemail">Mail Oluştur</a>
+                            <a class="btn btn-block btn-primary compose-mail" href="mail_compose.html">Mail Oluştur</a>
                             <div class="space-25"></div>
                             <h5>Dosyalar</h5>
                             <ul class="folder-list m-b-md" style="padding: 0">
@@ -53,7 +53,7 @@
                         </div>
                     </form>
                     <h2>
-                        Gelen Kutusu(16)
+                        Giden Kutusu(16)
                     </h2>
                     <div class="mail-tools tooltip-demo m-t-md">
                         <div class="btn-group float-right">
@@ -78,7 +78,7 @@
                                     <td class="check-mail">
                                         <input type="checkbox" class="i-checks">
                                     </td>
-                                    <td class="mail-ontact"><a href="mail_detail.html">@item.SenderUser.WriterName</a></td>
+                                    <td class="mail-ontact"><a href="mail_detail.html">@item.ReceiverUser.WriterName>
                                     <td class="mail-subject"><a href="mail_detail.html">@item.Subject</a></td>
                                     <td class=""><i class="fa fa-paperclip"></i></td>
                                     <td class="text-right mail-date">@item.MessageDate</td>
@@ -95,4 +95,6 @@
 </body>
 
 </html>
+
+
 
