@@ -6,23 +6,21 @@ using System.Linq;
 
 namespace CoreBlog.Areas.Admin.Controllers
 {
-    
+    [Area("Admin")]
+
     public class WriterController : Controller
     {
-        [Area("Admin")]
         public IActionResult Index()
         {
             return View();
         }
 
-        [Area("Admin")]
         public IActionResult WriterList()
         {
             var jsonWriters = JsonConvert.SerializeObject(writers);
             return Json(jsonWriters);
         }
 
-        [Area("Admin")]
         public IActionResult GetWriterById(int writerid)
         {
             var findWriter = writers.FirstOrDefault(x => x.id == writerid);
@@ -30,7 +28,6 @@ namespace CoreBlog.Areas.Admin.Controllers
             return Json(jsonWriter);
         }
 
-        [Area("Admin")]
         public IActionResult AddWriter(WriterClass w)
         {
             writers.Add(w);
@@ -38,7 +35,6 @@ namespace CoreBlog.Areas.Admin.Controllers
             return Json(jsonWriter);
         }
 
-        [Area("Admin")]
         public IActionResult DeleteWriter(int id)
         {
             var writer=writers.FirstOrDefault(x=>x.id==id);
@@ -46,7 +42,7 @@ namespace CoreBlog.Areas.Admin.Controllers
             return Json(writer);
 
         }
-        [Area("Admin")]
+     
 
         public IActionResult UpdateWriter(WriterClass w)
         {
