@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 
-<form>
+<form method="post">
 
     @for (var i = 0; i < @Model.Count; i++)
     {
@@ -15,7 +15,9 @@
             <label class="form-check-label" asp-for="@Model[i].exist">@Model[i].Name</label>
         </div>
     } 
+    <br />
 <button class="btn btn-info">Değişiklikleri Kaydet</button>             
 </form>
+<br />
 
 <a href="/admin/adminrole/userrolelist" class="btn btn-info">Kullanıcı Rol Listesi</a>

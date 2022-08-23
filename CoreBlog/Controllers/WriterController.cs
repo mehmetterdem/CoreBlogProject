@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 
 namespace CoreBlog.Controllers
 {
-
+    [Authorize(Roles ="Admin,Writer")]
     public class WriterController : Controller
     {
         Context c = new Context();

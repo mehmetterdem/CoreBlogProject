@@ -36,7 +36,7 @@ namespace CoreBlog.Controllers
                 var result = await _signInManager.PasswordSignInAsync(p.UserName, p.Password, false, true);
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("index", "dashboard");
+                    return RedirectToAction("index", "Blog");
                 }
                 else
                 {
@@ -53,6 +53,10 @@ namespace CoreBlog.Controllers
             return RedirectToAction("index", "Login");
         }
 
+        public IActionResult AccessDenied()
+        {
+            return View();
+        }
       
 
     }
